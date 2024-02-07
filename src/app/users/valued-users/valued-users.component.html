@@ -1,0 +1,27 @@
+<p>valued-users works!</p>
+<div>
+ data coming for parent component  {{channelName}}, {{channel}} with {{tax}}
+</div>
+
+<button (click)="userdata()"> user data</button>
+
+<button (click)="updateUsers()"> update users</button>
+
+<div>
+   <!-- data send from parent to child {{usersData | json}} -->
+
+   <table>
+    <tr> 
+        <th> S:NO </th>
+        <th> Name </th>
+        <th> email</th>
+    </tr>
+
+    <tr *ngFor="let user of usersData">
+        <td> {{user.id}}</td>
+        <td> {{user.username}}</td>
+        <td> {{user.email}}</td>
+    </tr>
+   </table>
+</div>
+

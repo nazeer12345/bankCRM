@@ -1,0 +1,14 @@
+<form action="" [formGroup]="customerForm">
+    <input type="text" formControlName="name">
+    <input type="text" formControlName="city">
+    <input type="text" formControlName="country">
+<button (click)="submitForm(customerForm)">submit </button>
+</form>
+
+<form [formGroup]="studentForm">
+    <input type="text" formControlName="studentName">
+    <input type="text" formControlName="college">
+    <input type="text" formControlName="area">
+    <button (click)="submitStudentForm()">submit student details</button>
+</form>
+

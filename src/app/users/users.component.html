@@ -1,0 +1,41 @@
+<p>users works!</p>
+
+<app-valued-users [usersData]="usersObj" [channelName]="cName" [channel]="chaName"  [tax]="taxVal" (sendToParent)="cameFromChild($event)"
+  (updatedList)="updatedUsers($event)"></app-valued-users>
+
+  <!-- <div>
+    {{usersObj | json}}
+  </div> -->
+
+
+  <table class="table">
+    <tr> 
+        <th> S:NO </th>
+        <th> Catogory </th>
+        <th> Des</th>
+        <th> Price</th>
+        <th> Image</th>
+        <th> View</th>
+        <!-- <th> Images</th> -->
+    </tr>
+
+    <tr *ngFor="let product of productList.products">
+        <td> {{product.id}}</td>
+        <td> {{product.category}}</td>
+        <td> {{product.description}}</td>
+        <td> {{product.price}}</td>
+        <td> <span> <img [src]="product.thumbnail" alt="" width="75px"></span></td>
+        <!-- <td> <span *ngFor="let img of product.images">
+             <img [src]="img" alt="" width="75px"></span></td> -->
+            <td> <button  [routerLink]="['/users', product.id]"> View user</button></td>
+    </tr>
+   </table>
+
+   <div class="card col-md-6 mt-4 card" *ngFor="let product of productList.products">
+    <div class="container">
+        <span *ngFor="let img of product.images">
+            <img [src]="img" alt="" width="100%">
+        </span>
+    </div>
+    
+   </div>

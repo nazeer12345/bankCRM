@@ -1,0 +1,55 @@
+<p>addloan works!</p>
+
+<form [formGroup]="addLoanTypeForm">
+    <table>
+        <tr>
+    <div class="form-group">
+        <label> laon Name </label>
+        <input type="text" formControlName="loanName">
+        <span class="text-danger" *ngIf="addLoanTypeForm.get('loanName')?.hasError('required') && addLoanTypeForm.get('loanName')?.touched"> Loan Name is required </span>
+        <span class="text-danger" *ngIf="addLoanTypeForm.get('loanName')?.hasError('minlength')"> Minimum length required is 5</span>
+        <span class="text-danger" *ngIf="addLoanTypeForm.get('loanName')?.hasError('maxlength')"> Max length can be upto 15 chars only</span>
+    </div>
+</tr>
+    <br>
+<tr>
+    <div class="form-group">
+        <label> laon Type </label>
+        <input type="text" formControlName="laonType">
+    </div>
+</tr>
+    <br>
+    <tr>
+    <div class="form-group">
+        <label> Loan Description </label>
+        <textarea type="text" formControlName="loanDescription" cols="20" rows="5"></textarea>
+    </div>
+</tr>
+
+<!-- <tr>
+    <div class="form-group" formArrayName="users">
+        <label> users</label>
+        <div *ngFor="let control of FrmArr.controls; let i=index">
+            <input type="text" [formControlName]="i">
+        </div>
+    </div>
+</tr> -->
+
+<tr>
+    <div class="form-group" formArrayName="users">
+        <label> Users </label>
+        <div *ngFor="let control of FrmArr.controls; let i=index" [formControlName]="i">
+            <input type="text" formControlName="name">
+            <input type="text" formControlName="age">
+            <input type="text" formControlName="dept">
+            <button (click)="removeUser(i)"> remove</button>
+        </div>
+
+    </div>
+</tr>
+
+</table>
+    <button class="btn btn-primary" [disabled]="!addLoanTypeForm.valid" (click)="loanTypeForm()">Add Loan</button>
+    <button (click)="resetLoanForm()">reset form</button>
+    <button (click)="addUser()">Add new user </button>
+</form>

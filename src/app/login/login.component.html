@@ -1,0 +1,22 @@
+<form #addLoginForm = "ngForm" (submit)="addLogin(addLoginForm)">
+    <input type="text" name="firstName" [(ngModel)]="firstName" minlength="10">
+    <br>
+    <input type="checkbox" required name="terms" [(ngModel)]="terms"> Accept terms
+    <br>
+    <select [(ngModel)]="customerType"  name="customerType">
+        <option value="1"> premium</option>
+        <option value="2"> Gold</option>
+    </select>
+    <br>
+    <input type="radio" name="gender" [(ngModel)]="gender" value="male"> Male
+    <input type="radio" name="gender" [(ngModel)]="gender" value="female"> female
+    <input type="radio" name="gender" [(ngModel)]="gender" value="others"> others 
+
+    <br>
+
+    <textarea name="customerContent" [(ngModel)]="customerContent" cols="20" rows="5"></textarea>
+    <br>
+    <button  [disabled]="!addLoginForm.valid" type="submit"> Add Login</button>
+    <button (click)="resetForm(addLoginForm)"> reset </button>
+    <button (click)="setFormValue(addLoginForm)"> set default vlaues</button>
+  </form>
